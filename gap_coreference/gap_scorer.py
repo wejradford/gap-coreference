@@ -112,10 +112,14 @@ def read_annotations(filename, is_gold):
   """
 
   def is_true(value):
+    if value is None:
+      return False
     if value.lower() == 'true':
       return True
     elif value.lower() == 'false':
       return False
+    elif value is not None:
+      return True
     else:
       print('Unexpected label!', value)
       return None
